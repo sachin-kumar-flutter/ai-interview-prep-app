@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../widgets/feature_card.dart';
+import '../dsa_practice/dsa_practice_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -95,9 +96,19 @@ class HomeScreen extends StatelessWidget {
   }
 
   void _onFeatureTap(BuildContext context, String featureName) {
+    if (featureName == 'DSA Practice') {
+      Navigator.push(
+        context,
+        MaterialPageRoute<void>(
+          builder: (_) => const DSAPracticeScreen(),
+        ),
+      );
+      return;
+    }
+
     Navigator.push(
       context,
-      MaterialPageRoute(
+      MaterialPageRoute<void>(
         builder: (_) => PlaceholderScreen(title: featureName),
       ),
     );
